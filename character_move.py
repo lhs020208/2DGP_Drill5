@@ -49,15 +49,18 @@ dirx = 0
 diry = 0
 
 while running:
+    global count
     clear_canvas()
     grass.draw(400, 300)
     character.clip_draw(frame*60,act*60,60,60,x,y,150,150)
     update_canvas()
     handle_events()
     frame = (frame + 1) % 8
-    x += dirx * 5
-    y += diry * 5
-    delay(0.05)
+    if (x + dirx * 10 >= 60) and (x + dirx * 10 <= 740):
+        x += dirx * 10
+    if (y + diry * 10 >= 60) and (y + diry * 10 <= 540):
+        y += diry * 10
+    delay(0.03)
 
 close_canvas()
 
